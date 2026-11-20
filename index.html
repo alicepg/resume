@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alice Prigl d'Ondel</title>
+<meta name="description" content="Alice Prigl d'Ondel – public health science student at the University of Gothenburg, interested in health economics and HTA.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital@0;1&family=Inter:wght@400;500;600&family=Mulish:wght@800&display=swap" rel="stylesheet">
+<style>
+/* VOICE: calm, confident, professional with a personal thread
+   IDEA: a travel log / route map — three cities, one direction
+   PICTURE: a route line Paris → Seoul → Gothenburg on the home page
+   COLOUR and TYPE: white, ink, one deep teal; Libre Caslon titles + Inter body
+   LAYOUT: fixed left sidebar menu, one page at a time on the right */
+:root{color-scheme:light dark;
+--bg:light-dark(#ffffff,#0d1416);--side:light-dark(#f3f5f5,#121c1e);
+--ink:light-dark(#14161a,#e8ecec);--soft:light-dark(#4a5258,#a9b4b6);
+--mute:light-dark(#6b7378,#8b9799);--rule:light-dark(#dde2e3,#24302f);
+--teal:light-dark(#0b5d63,#5fb8bd);--tint:light-dark(#e6f0f0,#16282a);
+--bar:light-dark(#ffffff,#0d1416);--ring:light-dark(#e6f0f0,#16282a);--barink:light-dark(#8a9296,#7d898b)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif;overflow-x:clip}
+a{color:var(--teal)}
+h1,h2,h3{font-family:"Libre Caslon Text",Georgia,serif;font-weight:400;line-height:1.1;text-wrap:balance;margin:0}
+h1{font-size:clamp(34px,5vw,50px)}h2{font-size:clamp(30px,4vw,40px);margin-bottom:8px}h3{font-size:21px}
+.wrap{display:grid;grid-template-columns:260px minmax(0,1fr);min-height:100vh}
+aside{background:var(--bar);color:var(--ink);border-right:1px solid var(--rule);padding:40px 22px 28px;position:sticky;top:0;height:100vh;text-align:center}
+.photo{position:relative;display:block;width:170px;height:170px;margin:0 auto 18px;border-radius:50%;border:6px solid var(--ring);box-shadow:0 0 0 1px var(--teal);overflow:hidden;background:var(--teal);text-decoration:none}
+.photo span{position:absolute;inset:0;display:grid;place-items:center;color:#fff;font:800 44px Mulish,sans-serif}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.me{font-family:"Libre Caslon Text",Georgia,serif;font-size:22px;line-height:1.2}
+.role{font-size:13px;color:var(--barink);margin:4px 0 22px}
+nav{display:flex;flex-direction:column;gap:2px}
+nav a{display:block;text-decoration:none;color:var(--barink);padding:8px 10px;font:800 17px Mulish,sans-serif;text-transform:uppercase;letter-spacing:.03em}
+nav a:hover{color:var(--ink)}nav a[aria-current=page]{color:var(--teal)}
+.side-foot{margin-top:auto;font-size:13px;color:var(--barink);display:flex;flex-direction:column;gap:6px}
+.side-foot a{text-decoration:none;color:var(--teal)}
+.topbar{display:none}
+main{padding:clamp(28px,5vw,72px) clamp(20px,5vw,80px);max-width:960px}
+section{display:none}section.on{display:block;animation:in .35s ease}
+@keyframes in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){section.on{animation:none}}
+.lead{font-size:18px;color:var(--soft);max-width:62ch;margin:18px 0 0}
+.kicker{font-size:14px;color:var(--teal);font-weight:500;margin-bottom:12px}
+.fig{position:relative;margin:34px 0 8px;border:1px solid var(--rule);border-radius:14px;background:var(--side);aspect-ratio:600/230;max-height:300px;width:100%}
+.fig svg{position:absolute;inset:0;width:100%;height:100%}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:26px 0}
+.stat{border-top:2px solid var(--teal);padding-top:10px}
+.stat b{display:block;font-family:"Libre Caslon Text",Georgia,serif;font-weight:400;font-size:clamp(26px,3vw,32px);line-height:1.1}
+.stat span{font-size:13px;color:var(--mute)}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.btn{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:999px;border:1px solid var(--rule);text-decoration:none;color:var(--ink);font-size:15px;font-weight:500}
+.btn.primary{background:var(--teal);border-color:var(--teal);color:var(--bg)}
+.btn:focus-visible,nav a:focus-visible,button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.item{display:grid;grid-template-columns:150px minmax(0,1fr);gap:8px 28px;padding:22px 0;border-top:1px solid var(--rule)}
+.item:first-of-type{border-top:0}
+.when{font-size:14px;color:var(--mute);white-space:nowrap}
+.item h3{margin-bottom:2px}
+.where{font-size:14px;color:var(--teal);margin-bottom:8px}
+.item p,.item ul{margin:6px 0 0;color:var(--soft)}
+.item ul{padding-left:18px}.item li{margin:4px 0}
+.chap{padding:26px 0;border-top:1px solid var(--rule)}
+.chap .city{font-size:14px;color:var(--teal);font-weight:500}
+.chap h3{font-size:26px;margin:4px 0 10px}
+.chap p{max-width:64ch;color:var(--soft);margin:0 0 10px}
+.feature{border:1px solid var(--rule);border-radius:16px;padding:clamp(20px,3vw,32px);background:var(--side);margin-top:24px}
+.tag{display:inline-block;font-size:13px;padding:3px 10px;border-radius:999px;background:var(--tint);color:var(--teal);margin-bottom:12px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:22px}
+.card{border:1px solid var(--rule);border-radius:12px;padding:18px 20px}
+.card h3{font-size:19px;margin-bottom:6px}.card p{margin:0;color:var(--soft);font-size:15px}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.pills span{font-size:14px;padding:6px 12px;border-radius:999px;border:1px solid var(--rule)}
+.pills span.learn{border-style:dashed}
+.note{font-size:13px;color:var(--mute);margin-top:10px}
+.contact p{font-size:18px;margin:8px 0}
+@media(max-width:860px){
+ .wrap{grid-template-columns:1fr}
+ aside{position:static;height:auto;padding:0;border:0;background:none}
+ .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 18px;background:var(--bar);border-bottom:1px solid var(--rule);text-align:left}
+ .topbar .photo{width:52px;height:52px;border-width:3px;margin:0}.topbar .photo span{font-size:17px}
+ .topbar .me{font-size:18px;flex:1}
+ .menu{min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--rule);background:transparent;color:var(--ink);font:800 14px Mulish,sans-serif;text-transform:uppercase}
+ .side-inner{display:none;padding:6px 16px 18px}
+ .side-inner.open{display:block}
+ .side-inner .me,.side-inner .role,.side-inner .photo{display:none}
+ .side-foot{margin-top:12px}
+}
+@media(min-width:861px){.side-inner{display:flex;flex-direction:column;height:100%}}
+@media(max-width:600px){.item{grid-template-columns:1fr;gap:2px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<aside>
+ <div class="topbar"><a class="photo" href="#home" aria-label="Home"><span>AP</span><img src="profile.jpg" alt="" onerror="this.remove()"></a><span class="me">Alice Prigl d'Ondel</span><button class="menu" id="menu" aria-expanded="false" aria-controls="side">Menu</button></div>
+ <div class="side-inner" id="side">
+  <a class="photo" href="#home" aria-label="Home"><span>AP</span><img src="profile.jpg" alt="Alice Prigl d'Ondel" onerror="this.remove()"></a>
+  <div class="me">Alice Prigl d'Ondel</div>
+  <div class="role">Public health science · health economics</div>
+  <nav id="nav"></nav>
+  <div class="side-foot">
+   <a href="https://www.linkedin.com/in/alice-prigl/">LinkedIn</a>
+   <span>gusprigal@student.gu.se</span>
+   <span>Gothenburg, Sweden</span>
+  </div>
+ </div>
+</aside>
+
+<main>
+<!-- HOME -->
+<section id="home">
+ <div class="kicker">Paris · Seoul · Gothenburg</div>
+ <h1>Public health student working towards health economics and HTA</h1>
+ <p class="lead">I'm doing a Master of Medical Science in Public Health Science at the University of Gothenburg. Before that, I spent four years in Seoul studying international relations and economics, and three years in luxury retail in Paris. Now I'm adding the quantitative side: epidemiology, biostatistics and, next, health economics.</p>
+ <div class="fig" aria-label="Route map from Paris to Seoul to Gothenburg">
+  <svg viewBox="0 0 600 230" role="img"><title>Paris 2017, Seoul 2021, Gothenburg 2026</title>
+   <path d="M110 150 C 230 40, 400 40, 500 120" fill="none" stroke="var(--teal)" stroke-width="2" stroke-dasharray="6 6"/>
+   <path d="M500 120 C 430 200, 240 210, 150 80" fill="none" stroke="var(--teal)" stroke-width="2"/>
+   <g fill="var(--bg)" stroke="var(--teal)" stroke-width="3"><circle cx="110" cy="150" r="9"/><circle cx="500" cy="120" r="9"/></g>
+   <circle cx="150" cy="80" r="11" fill="var(--teal)"/>
+   <g font-family="Inter,sans-serif" font-size="15" fill="var(--ink)">
+    <text x="68" y="182">Paris</text><text x="478" y="152">Seoul</text><text x="168" y="64">Gothenburg</text></g>
+   <g font-family="Inter,sans-serif" font-size="13" fill="var(--mute)">
+    <text x="68" y="200">2017–2020</text><text x="478" y="170">2021–2026</text><text x="168" y="82">2026–</text></g>
+  </svg>
+ </div>
+ <div class="stats">
+  <div class="stat"><b>1 of 5</b><span>selected worldwide for a full scholarship in Seoul</span></div>
+  <div class="stat"><b>4.17</b><span>GPA, BA International Studies, Dean's List</span></div>
+  <div class="stat"><b>#1</b><span>store sales performer, Zadig &amp; Voltaire</span></div>
+  <div class="stat"><b>3</b><span>languages: French, English, Korean</span></div>
+ </div>
+ <p class="note">Available for internships and projects throughout 2027.</p>
+ <div class="btns">
+  <a class="btn primary" href="#story">Read my story</a>
+  <a class="btn" href="#projects">See The Determinant</a>
+ </div>
+</section>
+
+<!-- STORY -->
+<section id="story">
+ <h2>My story</h2>
+ <p class="lead">Three cities, three very different chapters.</p>
+ <div class="chap" style="margin-top:20px">
+  <div class="city">Paris · 2017–2020</div>
+  <h3>Performance</h3>
+  <p>I started in luxury retail and client service, at Chanel and Zadig &amp; Voltaire. I liked the challenge: targets, KPIs, and being measured on results every day. I became the store's top sales performer and brought in 16% of its revenue.</p>
+ </div>
+ <div class="chap">
+  <div class="city">Seoul · 2021–2026</div>
+  <h3>The leap</h3>
+  <p>In October 2020 I found out about a five-year full scholarship to study in Seoul. I knew almost nothing about Korea, applied in less than a week, and two months later learned I was one of five people selected worldwide that year. In February 2021 I moved and started again from zero.</p>
+  <p>At Hankuk University of Foreign Studies I discovered international relations, development economics, technology policy and global health, and how much I like understanding complex systems. After graduating, I joined Thales Korea to see how a complex, regulated, government-driven market works in practice.</p>
+ </div>
+ <div class="chap">
+  <div class="city">Gothenburg · 2026–</div>
+  <h3>Going quantitative</h3>
+  <p>I chose public health science in Gothenburg to learn what I'd never studied: epidemiology, biostatistics and the methods behind health decisions. A new country and a new culture again, on purpose. My goal is the health economics track and a quantitative approach to HTA and health innovation.</p>
+ </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+ <h2>Education</h2>
+ <div class="item">
+  <div class="when">2026 – 2028</div>
+  <div><h3>Master of Medical Science, Public Health Science</h3>
+  <div class="where">University of Gothenburg, Sahlgrenska Academy</div>
+  <p>Focus: epidemiology, biostatistics, health economics, HTA and HEOR.</p></div>
+ </div>
+ <div class="item">
+  <div class="when">2021 – 2025</div>
+  <div><h3>Bachelor of Arts, International Studies</h3>
+  <div class="where">Hankuk University of Foreign Studies, Seoul</div>
+  <ul><li>GPA 4.17 · Dean's List</li><li>Full scholarship recipient, one of five selected worldwide</li><li>Focus: development economics, international relations, technology policy, global health</li></ul></div>
+ </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+ <h2>Experience</h2>
+ <div class="item">
+  <div class="when">Jan – Jul 2026</div>
+  <div><h3>Strategy and Export Sales Intern</h3>
+  <div class="where">Thales Korea, Seoul</div>
+  <ul><li>Built market intelligence on Korea's technology sector for leadership</li><li>Wrote quarterly country reports combining geopolitical and macroeconomic data</li></ul></div>
+ </div>
+ <div class="item">
+  <div class="when">2017 – 2020</div>
+  <div><h3>Luxury and client service</h3>
+  <div class="where">Chanel (France and Monaco) · Zadig &amp; Voltaire, Paris</div>
+  <ul><li>Handled 50–80 client interactions a day by phone for Chanel</li><li>Ranked #1 store sales performer and top 5 in France on KPIs at Zadig &amp; Voltaire</li><li>Generated 16% of total store revenue</li></ul></div>
+ </div>
+</section>
+
+<!-- LEADERSHIP -->
+<section id="leadership">
+ <h2>Leadership</h2>
+ <div class="item">
+  <div class="when">Since Sep 2026</div>
+  <div><h3>Cohort Representative, Social Media Lead and Webmaster</h3>
+  <div class="where">Education Council of Sahlgrenska Global Programs (EcoSGP), University of Gothenburg</div>
+  <ul><li>Represent the first-year Public Health Science cohort on the council</li><li>Create content for the council's social media channels</li><li>Initiated and am building The Determinant, the council's student magazine</li></ul></div>
+ </div>
+ <div class="item">
+  <div class="when">2024 – 2025</div>
+  <div><h3>President</h3>
+  <div class="where">International Research Club, HUFS</div>
+  <ul><li>Grew membership from 7 to 15</li><li>Managed the budget and relations with the university</li><li>Organised guest lectures and field trips; edited the semesterly student research journal</li></ul></div>
+ </div>
+ <div class="item">
+  <div class="when">Spring 2025</div>
+  <div><h3>Guest Reporter</h3>
+  <div class="where">The Argus, HUFS</div>
+  <p>Wrote and published two articles on linguistic rights and education diplomacy.</p></div>
+ </div>
+ <div class="item">
+  <div class="when">2022 – 2025</div>
+  <div><h3>Organisation Team Leader</h3>
+  <div class="where">International Committee, HUFS</div>
+  <p>Managed logistics, budgeting, funding and events for international students.</p></div>
+ </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+ <h2>Projects</h2>
+ <div class="feature">
+  <span class="tag">In development</span>
+  <h3 style="font-size:28px">The Determinant</h3>
+  <p class="lead" style="font-size:17px;margin-top:10px">A student magazine about public health for Sahlgrenska Academy, published by EcoSGP. I came up with the idea, and I'm designing and building the website myself with AI-assisted development, ahead of proposing it to the council.</p>
+  <div class="pills"><span>Concept</span><span>Editorial structure</span><span>Web design and build</span><span>Project lead</span></div>
+  <div class="btns"><a class="btn primary" href="https://the-determinant.aliceprigll.workers.dev/articles/quiet-revolution-public-health/">View the preview</a></div>
+ </div>
+ <div class="grid2">
+  <div class="card"><h3>The Argus articles</h3><p>Two published pieces on linguistic rights and education diplomacy.</p></div>
+  <div class="card"><h3>IRC research journal</h3><p>Edited the International Research Club's semesterly student research journal.</p></div>
+ </div>
+</section>
+
+<!-- INTERESTS -->
+<section id="interests">
+ <h2>Interests</h2>
+ <p class="lead">The questions I want to work on.</p>
+ <div class="grid2">
+  <div class="card"><h3>Health technology assessment</h3><p>Where evidence, money and policy meet: deciding what a health system should pay for.</p></div>
+  <div class="card"><h3>Health economics of innovation</h3><p>How new treatments and technologies get valued, priced and adopted.</p></div>
+  <div class="card"><h3>Epidemiology and biostatistics</h3><p>The methods I'm learning now, and the base for everything quantitative I want to do.</p></div>
+  <div class="card"><h3>Global health and development</h3><p>Carried over from my studies in Seoul: health as part of economic and political systems.</p></div>
+  <div class="card"><h3>Building with code</h3><p>Making digital tools and websites, like this one and The Determinant.</p></div>
+ </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+ <h2>Skills</h2>
+ <h3 style="margin-top:22px">Data and analysis</h3>
+ <div class="pills"><span class="learn">Stata (learning)</span><span>Excel</span><span>Market intelligence</span><span>Country and sector reports</span></div>
+ <h3 style="margin-top:26px">Tools</h3>
+ <div class="pills"><span>PowerPoint</span><span>Word</span><span>Google Workspace</span><span>Generative AI tools</span><span>Web building</span></div>
+ <h3 style="margin-top:26px">Content and communication</h3>
+ <div class="pills"><span>Canva</span><span>Instagram</span><span>TikTok</span><span>LinkedIn</span><span>X</span><span>Event promotion</span></div>
+ <h3 style="margin-top:26px">Languages</h3>
+ <div class="pills"><span>French · native</span><span>English · fluent</span><span>Korean · conversational</span></div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+ <h2>Contact</h2>
+ <p class="lead">Open to internships, projects and conversations about health economics, HTA and public health.</p>
+ <p style="margin-top:26px">Email: gusprigal@student.gu.se</p>
+ <p>LinkedIn: <a href="https://www.linkedin.com/in/alice-prigl/">linkedin.com/in/alice-prigl</a></p>
+ <div class="btns"><a class="btn primary" href="mailto:gusprigal@student.gu.se">Send an email</a></div>
+</section>
+</main>
+</div>
+
+<script>
+{
+const pages=[["home","Home"],["story","My story"],["education","Education"],["experience","Experience"],["leadership","Leadership"],["projects","Projects"],["interests","Interests"],["skills","Skills"],["contact","Contact"]];
+const nav=document.getElementById('nav'),side=document.getElementById('side'),menu=document.getElementById('menu');
+nav.innerHTML=pages.map(([id,l])=>`<a href="#${id}" data-id="${id}">${l}</a>`).join('');
+function show(){
+ let id=location.hash.slice(1);
+ if(!pages.some(p=>p[0]===id))id='home';
+ document.querySelectorAll('section').forEach(s=>s.classList.toggle('on',s.id===id));
+ nav.querySelectorAll('a').forEach(a=>a.dataset.id===id?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current'));
+ side.classList.remove('open');menu.setAttribute('aria-expanded','false');
+ window.scrollTo(0,0);
+}
+menu.addEventListener('click',()=>{const o=side.classList.toggle('open');menu.setAttribute('aria-expanded',o)});
+window.addEventListener('hashchange',show);
+show();
+}
+</script>
+</body>
+</html>
